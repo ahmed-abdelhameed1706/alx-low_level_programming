@@ -2,7 +2,11 @@
 #include <time.h>
 #include <stdio.h>
 /* more headers goes there */
-
+/**
+ * main - this is the main function
+ *
+ * Return: 0 on success
+ */
 /* betty style doc for function main goes there */
 int main(void)
 {
@@ -10,7 +14,6 @@ int main(void)
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
-	
 	if (n > 0)
 	{
 		printf("%i is positive\n", n);
