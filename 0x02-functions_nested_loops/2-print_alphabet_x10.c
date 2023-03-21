@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * void print_alphabet_x10(void) - prints the alphapet x10
+ * print_alphabet_x10 - prints the alphapet x10
  *
  * Return: nothing
  */
@@ -21,5 +21,4 @@ void print_alphabet_x10(void)
 		_putchar('\n');
 		x++;
 	}
-	
 }
