@@ -9,14 +9,9 @@
  */
 int _islower(int c)
 {
-	char i;
-
-	for (i = 'a'; i <= 'z'; i++)
+	if (c >= 97 && c <= 122)
 	{
-		if (c + '0' == i)
-		{
-			return (1);
-		}
+		return (1);
 	}
 	return (0);
 }
