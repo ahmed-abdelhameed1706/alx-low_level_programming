@@ -1,11 +1,10 @@
 #include <stdio.h>
-#include "main.h"
 
 /**
- * print_natural_numbers - prints numbers
+ * main- prints numbers
  * Return: returns nothing
  */
-void print_natural_numbers(void)
+int main(void)
 {
 	int sum = 0;
 	int j;
@@ -18,4 +17,5 @@ void print_natural_numbers(void)
 		}
 	}
 	printf("%i\n", sum);
+	return (0);
 }
