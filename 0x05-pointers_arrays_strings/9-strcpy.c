@@ -4,7 +4,7 @@
  * *_strcpy - main
  * @dest: param
  * @src: param
- * return : char
+ * Return: char
  */
 char *_strcpy(char *dest, char *src)
 {
