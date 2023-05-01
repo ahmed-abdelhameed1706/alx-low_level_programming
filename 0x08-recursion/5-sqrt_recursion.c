@@ -1,43 +1,30 @@
 #include "main.h"
 
 /**
- * _sqrt - finds the square root
- * @n: the number to find the square root of
- * @min: the minimum value to search
- * @max: the maximum value to search
+ * _sqrt_recursion - returns the natural square root of a number
+ * @n: number to calculate the square root of
  *
- * Return: the square root of n or -1
+ * Return: the resulting square root
  */
-
-int _sqrt(int n, int min, int max)
+int _sqrt_recursion(int n)
 {
-	int mid;
-
-	if (n == 0 || n == 1)
-		return n;
-	if (min > max)
-		return -1;
-	
-	mid = min + (max - min) / 2;
-	
-	if (mid * mid == n)
-		return mid;
-	
-	if (mid * mid < n)
-		return _sqrt(n, mid + 1, max);
-	
-	else
-		return _sqrt(n, min, mid - 1);
+	if (n < 0)
+		return (-1);
+	return (_sqrt(n, 0));
 }
 
 /**
- * _sqrt_recursion - finds the natural square root of a number
- * @n: the number to find the square root of
+ * _sqrt - recurses to find the natural square root
+ * @n: number to calculate the sqaure root of
+ * @i: iterator
  *
- * Return: the square root of n or -1
+ * Return: the resulting square root
  */
-
-int _sqrt_recursion(int n)
+int _sqrt(int n, int i)
 {
-	return _sqrt(n, 0, n);
+	if (i * i > n)
+		return (-1);
+	if (i * i == n)
+		return (i);
+	return (_sqrt(n, i + 1));
 }
