@@ -4,6 +4,7 @@
  * *insert_nodeint_at_index - inserts node at position
  * @head: pointer to the first node
  * @n: data to be stored in the node
+ * @idx: index of the requested node
  *
  * Return: pointer to the inserted node
  */
@@ -15,7 +16,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 
 	new_node = malloc(sizeof(listint_t));
 
-	if(new_node == NULL)
+	if (new_node == NULL)
 		return (NULL);
 
 	new_node->n = n;
