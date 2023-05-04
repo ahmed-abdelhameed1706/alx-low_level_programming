@@ -46,7 +46,7 @@ unsigned int binary_to_uint(const char *b)
 	for (i = (length - 1), j = 0; i >= 0; i--, j++)
 	{
 		k = b[i] - '0';
-		result = result + (k * _pow(2, j)); 
+		result = result + (k * _pow(2, j));
 	}
 
 	return (result);
