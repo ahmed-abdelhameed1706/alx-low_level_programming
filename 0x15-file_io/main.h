@@ -6,6 +6,8 @@
 #include <fcntl.h>
 #include <stdlib.h>
 
+#define BUFFER_SIZE 1024
+
 /* FUNCTION PROTOTYPES */
 
 int _putchar(char c);
