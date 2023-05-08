@@ -11,6 +11,7 @@ void cant_read_error(const char *file_from, int *result)
 {
 	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 	*result = 98;
+	exit(98);
 }
 /**
  * cant_write_error - prints error when can't write
@@ -23,6 +24,7 @@ void cant_write_error(const char *file_to, int *result)
 {
 	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 	*result = 99;
+	exit(99);
 }
 /**
  * close_error - prints error when can't close
@@ -34,6 +36,7 @@ void close_error(int f, int *result)
 {
 	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", f);
 	*result = 100;
+	exit(100);
 }
 /**
  * cp - copies from file to another
@@ -66,16 +69,13 @@ int cp(const char *file_from, const char *file_to)
 		if(n_read == -1)
 			cant_read_error(file_from, &result);
 		n_write = write(f_to, buffer, n_read);
-		if (n_write == -1) {
+		if (n_write == -1)
 			cant_write_error(file_to, &result);
-		}
 	}
-	if (n_read == -1)
-		cant_read_error(file_from, &result);
 	if (close(f_from) == -1)
 		close_error(f_from, &result);
 	if (close(f_to) == -1)
-		close_error(f_from, &result);
+		close_error(f_to, &result);
 	return (result);
 }
 /**
