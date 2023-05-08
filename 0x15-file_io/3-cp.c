@@ -62,16 +62,16 @@ int cp(const char *file_from, const char *file_to)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 		exit(99);
 	}
-	n_read = 1024;
-	while (n_read == 1024)
+	while ((n_read = read(f_from, buffer, BUFFER_SIZE)) > 0)
 	{
-		n_read = read(f_from, buffer, 1024);
-		if(n_read == -1)
-			cant_read_error(file_from, &result);
 		n_write = write(f_to, buffer, n_read);
-		if (n_write == -1)
+		if (n_write != n_read || n_write == -1) {
 			cant_write_error(file_to, &result);
+			break;
+		}
 	}
+	if (n_read == -1)
+		cant_read_error(file_from, &result);
 	if (close(f_from) == -1)
 		close_error(f_from, &result);
 	if (close(f_to) == -1)
