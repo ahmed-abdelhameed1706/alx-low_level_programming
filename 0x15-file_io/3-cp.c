@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdio.h>
+#include <sys/stat.h>
 /**
  * cant_read_error - prints error when can't read
  * @file_from: file name
@@ -86,6 +87,7 @@ int main(int argc, char **argv)
 {
 	int result;
 
+	umask(0);
 	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: %s file_from file_to\n", argv[0]);
