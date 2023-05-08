@@ -51,7 +51,7 @@ int cp(const char *file_from, const char *file_to)
 	char buffer[BUFFER_SIZE];
 
 	f_from = open(file_from, O_RDONLY);
-	if (f_from == -1 || file_from == NULL)
+	if (f_from == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
@@ -65,9 +65,9 @@ int cp(const char *file_from, const char *file_to)
 	while ((n_read = read(f_from, buffer, BUFFER_SIZE)) > 0)
 	{
 		n_write = write(f_to, buffer, n_read);
-		if (n_write != n_read || n_write == -1) {
+		if (n_write != n_read || n_write == -1)
+		{
 			cant_write_error(file_to, &result);
-			break;
 		}
 	}
 	if (n_read == -1)
