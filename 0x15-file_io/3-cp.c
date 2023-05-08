@@ -47,7 +47,7 @@ int cp(const char *file_from, const char *file_to)
 	char buffer[BUFFER_SIZE];
 
 	f_from = open(file_from, O_RDONLY);
-	if (f_from == -1)
+	if (f_from == -1 || file_from == NULL)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
